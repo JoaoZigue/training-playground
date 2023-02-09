@@ -6,7 +6,7 @@ pipeline {
 	}
 	parameters{
 		//string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Qual stage?')
-		choice(name: 'CHOICE', choice: ['build', 'test'], description: 'Qual stage?')
+		choice(name: 'CHOICE', choices: ['build', 'test'], description: 'Qual stage?')
 	}
 	
     stages {
