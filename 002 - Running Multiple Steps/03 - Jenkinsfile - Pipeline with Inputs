@@ -6,6 +6,13 @@ pipeline {
 	}
     stages {
         stage('build') {
+	   input {
+	   	message "What is your name?"
+		parameters{
+			string(name: 'NAME', defaultValue:'Mr Jenkins', description:'Who should i say hello to?')
+			string(name: 'AGE', defaultValue:'Mr Jenkins', description:'Who should i say hello to?')
+		}
+	   }
             steps {
                 echo "$NAME"
                 echo "$AGE"
