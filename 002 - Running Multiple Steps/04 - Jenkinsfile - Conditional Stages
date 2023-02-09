@@ -4,6 +4,27 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	parameters{
+		//string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Qual stage?')
+		choice(name: 'CHOICE', choice: ['build', 'test'], description: 'Qual stage?')
+	}
+	
     stages {
+    	stage('build'){
+		when{
+			environment name: 'CHOICE', value: 'build'
+		}
+		steps{
+		echo 'build stage'
+		}
+	}
+	stage('test'){
+		when{
+			environment name: 'CHOICE', value: 'test'
+		}
+		steps{
+		echo 'test stage'
+		}
+	}
     }
 }
